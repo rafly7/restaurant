@@ -1,0 +1,26 @@
+version: '3.7'
+services:
+  api-exp:
+    container_name: smm-api-exp
+    hostname: smm-api-exp
+    image: edwardsuwirya/smm:api-exp1.0
+    environment:
+      - NODE_ENV=production
+      - APP_NAME=SMM
+      - APP_PORT=3000
+      - HOST_LISTEN=0.0.0.0
+      - LOG_PATH=/apps/smm-error.log
+      - LOG_LEVEL=error
+      - SECRET_KEY=secretkey
+      - DB_TYPE=mysql
+      - DB_HOST=159.89.192.105
+      - DB_PORT=3306
+      - DB_USERNAME=enigma
+      - DB_PASSWORD=P@ssw0rd
+      - DB_NAME=enigma
+    build:
+      context: ./
+      dockerfile: dockerfile
+    ports:
+      - "6969:3000"
+    restart: always
